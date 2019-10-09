@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <style type="text/css">
+        .background1{background-color: white}
+        .background2{background-color: blue}
+        .text{color: white}
+        .border{border: 1px blue solid}
+        .width{width: 100px}
+        .height{height: 35px}
+    </style>
+</head>
+<body>
+<div id="demo1">
+    <button :class="css1"@mouseenter="enter()" @mouseleave="leave()" @click="click()">{{bon}}</button>
+</div>
+<script>
+    new Vue({
+        el:'#demo1',
+        data(){
+            return{
+                bon:'Hello',
+            css1:'background1 border width height'
+                }
+        },
+        methods:{
+                enter(){
+                    this.css1 = 'background2 text border width height'
+                },
+                leave(){
+                    this.css1 = 'background1 border width height'
+
+                },
+                click(){
+                    alert(this.bon)
+
+                }
+
+        }
+    })
+
+</script>
+
+</body>
+</html>

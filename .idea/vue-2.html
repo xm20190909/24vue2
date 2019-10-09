@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="demo1">
+        <ab></ab>
+</div>
+<script>
+    var ab={
+template:`
+<div>
+    <button @click="add()"> + </button>
+    <input v-model="num" @change="n()">
+    <button @click="red()"> - </button>
+</div>`,
+        data(){
+            return{
+                num:1
+            }
+        },
+        methods: {
+            add(){
+                this.num++
+            },
+            red(){
+                if (this.num<=1)
+                    alert("数量为1，不能再减")
+                else
+                    this.num--
+            },
+
+            n(){
+                var reg = /^[0,9]+$/
+                var msg =reg.test(this.num)
+                console.log(msg)
+                 if (!msg)
+                     alert('输入数据不合法')
+                 this.num=1
+
+
+            }
+
+        }
+    }
+    new Vue({
+        el:'#demo1',
+        components:{ab}
+    })
+</script>
+</body>
+</html>
